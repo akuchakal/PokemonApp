@@ -15,7 +15,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.hackerlopers.pokemonapp.ui.theme.PokemonAppTheme
 import com.hackerlopers.pokemonapp.viewModel.PokemonViewModel
 import com.hackerlopers.pokemonapp.views.PokemonsView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

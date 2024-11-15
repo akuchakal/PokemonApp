@@ -87,6 +87,10 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     kapt("androidx.room:room-compiler:2.6.1")
 
+    // Coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
 
 }
 
