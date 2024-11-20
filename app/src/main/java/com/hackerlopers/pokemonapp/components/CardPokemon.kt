@@ -3,8 +3,6 @@ package com.hackerlopers.pokemonapp.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,10 +22,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.rememberAsyncImagePainter
-import com.hackerlopers.pokemonapp.data.RemotePokemon
+import com.hackerlopers.pokemonapp.models.Pokemon
 
 @Composable
-fun CardPokemon(pokemon: RemotePokemon, onClick: () -> Unit) {
+fun CardPokemon(pokemon: Pokemon, onClick: () -> Unit) {
     Card(
         shape = RoundedCornerShape(5.dp),
         modifier = Modifier

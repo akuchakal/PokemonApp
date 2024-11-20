@@ -3,6 +3,7 @@ package com.hackerlopers.pokemonapp.di
 import android.content.Context
 import androidx.room.Room
 import com.hackerlopers.pokemonapp.data.ApiPokemon
+import com.hackerlopers.pokemonapp.room.PokeDataBaseDao
 import com.hackerlopers.pokemonapp.room.PokeDatabase
 import com.hackerlopers.pokemonapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
@@ -45,6 +46,12 @@ class AppModule {
             )
             .fallbackToDestructiveMigration()
             .build()
+    }
+
+    @Singleton
+    @Provides
+    fun providesPokeDao(pokeDatabase: PokeDatabase): PokeDataBaseDao {
+        return pokeDatabase.pokeDao()
     }
 
 }
