@@ -9,5 +9,7 @@ data class Pokemon(
     @PrimaryKey()
     val name: String,
     @ColumnInfo(name = "fav")
-    val fav: Boolean = false
+    val fav: Boolean = false,
+    @ColumnInfo(name = "imageSource")
+    val imageSource: String? = null
 )

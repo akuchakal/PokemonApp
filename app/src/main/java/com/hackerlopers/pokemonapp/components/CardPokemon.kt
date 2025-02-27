@@ -6,8 +6,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -21,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import coil3.compose.rememberAsyncImagePainter
 import com.hackerlopers.pokemonapp.models.Pokemon
 
@@ -35,17 +38,26 @@ fun CardPokemon(pokemon: Pokemon, onClick: () -> Unit) {
             .clickable { onClick() }
     ){
         Column(
-            modifier = Modifier.padding(10.dp).fillMaxWidth(),
+            modifier = Modifier
+                .padding(10.dp)
+                .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            AsyncImage(
+                model = pokemon.imageSource,
+                contentDescription = pokemon.name,
+                modifier = Modifier.size(64.dp)
+            )
             Text(text = pokemon.name.orEmpty(), fontSize = 25.sp)
             IconButton(
-                onClick = {}
+                onClick = {
+                    onClick()
+                }
             ) {
                 Icon(
-                    imageVector = Icons.Default.FavoriteBorder,
+                    imageVector = if(pokemon.fav) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                     contentDescription = "",
-                    tint = Color.Gray
+                    tint = if(pokemon.fav) Color.Red else Color.Gray
                 )
             }
         }

@@ -11,13 +11,15 @@ data class PokemonsResponse (
 
 data class RemotePokemon (
     val name: String? = null,
-    val url: String? = null
+    val url: String? = null,
+    val detail: PokemonResponse? = null
 )
 
 fun RemotePokemon.transform(): Pokemon {
     this.apply {
         return Pokemon(
             name = name.orEmpty(),
+            imageSource = detail?.sprites?.frontDefault,
             fav = false
         )
     }
